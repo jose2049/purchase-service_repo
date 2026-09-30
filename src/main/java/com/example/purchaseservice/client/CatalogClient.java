@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name = "catalog-service", url = "http://locahost8080")
+@FeignClient(name = "catalog-service", url = "http://locahost:8080")
 public interface CatalogClient {
     @GetMapping("products/{id}")
     String getProductById(@PathVariable("id") Long id);

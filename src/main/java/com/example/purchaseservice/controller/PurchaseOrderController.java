@@ -11,9 +11,11 @@ import java.util.List;
 @RequestMapping("/orders")
 public class PurchaseOrderController {
     private final PurchaseOrderService service;
+    private final PurchaseOrderService purchaseOrderService;
 
-    public PurchaseOrderController(PurchaseOrderService service) {
+    public PurchaseOrderController(PurchaseOrderService service, PurchaseOrderService purchaseOrderService) {
         this.service = service;
+        this.purchaseOrderService = purchaseOrderService;
     }
 
     @GetMapping
@@ -25,6 +27,11 @@ public class PurchaseOrderController {
     @ResponseStatus(HttpStatus.CREATED)
     public PurchaseOrder create(@RequestBody PurchaseOrder purchaseOrder){
         return service.create(purchaseOrder);
+    }
+
+    @GetMapping("/test-catalog/{productId}")
+    public String testCatalogConnection(@PathVariable Long productId){
+        return purchaseOrderService.testCatalogConnection(productId);
     }
 
 }
