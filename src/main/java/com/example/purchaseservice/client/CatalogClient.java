@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "catalog-service", url = "http://locahost8080")
 public interface CatalogClient {
     @GetMapping("products/{id}")
-    String getProductBuId(@PathVariable("id") String id);
+    String getProductById(@PathVariable("id") Long id);
 }
