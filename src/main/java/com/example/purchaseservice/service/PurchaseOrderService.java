@@ -3,6 +3,7 @@ package com.example.purchaseservice.service;
 import com.example.purchaseservice.client.CatalogClient;
 import com.example.purchaseservice.model.PurchaseOrder;
 import com.example.purchaseservice.repository.PurchaseRepository;
+import com.example.purchaseservice.response.ProductResponse;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,7 @@ public class PurchaseOrderService {
         return purchaseRepository.save(order);
     }
 
-    public String testCatalogConnection (Long productId){
+    public ProductResponse testCatalogConnection (Long productId){
         return catalogClient.getProductById(productId);
     }
 
