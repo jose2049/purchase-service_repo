@@ -1,0 +1,13 @@
+services:
+  purchase:
+    image: purchase-service_repo:lab7
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:h2:file:./data/purchasedb"
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    volumes:
+      - purchase_data:/app/data
+
+volumes:
+  purchase_data:
