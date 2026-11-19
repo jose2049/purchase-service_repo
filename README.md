@@ -11,3 +11,4 @@ own container**
 docker compose down removes the container, the named volume remains intact. When I run docker compose up -d again, 
 Docker attaches the existing volume to the new container, allowing the application to access the previously stored
 data.**
+![img.png](img.png)
